@@ -6,7 +6,7 @@
 
 ** 영어 원서: link:https://www.amazon.com/Linear-Algebra-Its-Applications-4th/dp/0321385179/ref=sr_1_2?ie=UTF8&qid=1482926861&sr=8-2&keywords=linear+algebra+and+its+applications[Linear Algerbra and its Applications]     
 
-** 한글 번역본: link:http://www.kyobobook.co.kr/product/detailViewEng.laf?ejkGb=ENG&mallGb=ENG&barcode=9780534422004&orderClick=LEA&Kc=[선형대수학]
+** 한글 번역본: link:http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788945045249&orderClick=LAG&Kc=[선형대수학]
 
 * 부교재: Coding the Matrix: Linear Algebra through Applications to Computer Science, 1st, Philip Klein
 
