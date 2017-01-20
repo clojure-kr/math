@@ -1,5 +1,11 @@
 = 내용 정리
 
+++++
+<script type="text/javascript"
+   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+++++
+
 [stem]
 ++++
 x^2 + y^2 = 100
