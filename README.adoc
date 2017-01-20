@@ -60,7 +60,7 @@
 == 수식 입력하기
 
 link:https://www.mathjax.org[mathjax]를 이용해 수식을 작성해도, github에서는 수식이 제대로
-보이지 않습니다만, 다음의 방식을 이용하면, 불완전하기는 하지만, 수식을 정리해 공유할 수
+보이지 않습니다만, 다음의 방식을 이용하면, 불완전하기는 하지만 수식을 정리해 공유할 수
 있습니다.
 
 === Asciidoctor.js Live Preview 설치
@@ -71,7 +71,7 @@ link:https://www.mathjax.org[mathjax]를 이용해 수식을 작성해도, githu
 link:https://chrome.google.com/webstore/search/asciidoctor?hl=ko[]
 
 이 Google Chrome 확장 프로그램을 이용하면, 매 2초마다 해당 *.adoc 파일을 읽어들여 그 내용을
-브라우저 상에 보여 줍니다. 이때 수식도 함께 제대로 보여줍니다.
+브라우저 창에 보여 줍니다. 이때 수식도 함께 제대로 볼 수 있습니다.
 
 
 === 수식의 입력
