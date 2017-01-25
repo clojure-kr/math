@@ -17,6 +17,11 @@
 ** 한글 번역본: link:http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791195149292&orderClick=LAG&Kc=[코딩 더 매트릭스]
 
 
+## 참고 자료
+
+* link:https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab[Essence of Linear Algebra] (YouTube 동영상)
+
+
 ## 진행 일정
 
 [cols="4*^",options="header",width=50%]
