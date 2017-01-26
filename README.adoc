@@ -22,7 +22,7 @@
 * link:https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab[Essence of Linear Algebra] (YouTube 동영상)
 
 
-## 진행 일정 (총 16회, 약 8개월)
+## 진행 일정 (총 20회, 약 10개월)
 
 일정은 사정에 따라 추후 변경될 수 있습니다.
 
