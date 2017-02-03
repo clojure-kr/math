@@ -130,6 +130,117 @@ x^2 + y^2 = 100
 $ git pull
 ----
 
+[[neanderthal]]
+== Ubuntu에서 Neanderthal 라이브러리 설치/실행하기
+
+* 참고: link:https://www.reddit.com/r/Clojure/comments/5rfu2n/how_to_run_neanderthal_with_atlas_blas_from/[How to Run Neanderthal With ATLAS BLAS From Ubuntu Repositories]
+
+
+우분투에서 미리 컴파일된 네안데르탈 라이브러리를 다음과 같이 설치한 후
+
+[listing]
+----
+$ sudo apt-get install libatlas-base-dev
+----
+
+[source]
+.project.clj
+....
+(defproject linear "0.1.0-SNAPSHOT"
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
+                 [uncomplicate/neanderthal "0.8.0"]])
+....
+
+
+[source]
+.src/linear/core.clj
+....
+(ns linear.core
+  (:use (uncomplicate.neanderthal core native)))
+
+(def x (dv 1 2 3))
+(def y (dv 10 20 30))
+
+(dot x y)
+....
+
+
+위의 예제 코드를 실행하면 다음과 같은 에러가 뜬다.
+
+[listing]
+----
+java: symbol lookup error: /tmp/libneanderthal-atlas-0.3.14576897804109763789.so: undefined symbol: cblas_ddot
+----
+
+이러한 현상은 우분투에서만 일어나며, 그것도 미리 컴파일된 ATLAS 라이브러리를 apt-get을
+통해 설치했을 때에만 발생한다. 다시 말해, ATLAS 라이브러리 소스를 다운로드해 직접
+컴파일하면 이런 에러가 발생하지 않는다고 한다. 그런데
+link:http://neanderthal.uncomplicate.org/articles/getting_started.html[]에서 설명하는 대로
+link:http://math-atlas.sourceforge.net/atlas_install/atlas_install.html[]의 내용을 참조해
+직접 컴파일해 사용할 수도 있겠지만, 관련 내용이 상당히 길고 복잡해서, 실전에서 사용하는
+상황이 아니고 단순히 테스트하는 용도로 쓰고자 하는 경우에는 대단히 번거로운
+과정이다. 그래서 위의 에러를 해결하는 여러가지 방법을 소개하고자 한다.
+
+
+=== lein repl
+
+[listing]
+----
+$ LD_PRELOAD=/usr/lib/liblapack_atlas.so lein repl
+----
+
+위와 같이 실행하면, 발생하던 에러가 사라지며 위의 예제 코드가 정상적으로 작동한다.
+
+
+=== CIDER repl
+
+그런데 emacs의 CIDER repl에서는 마찬가지 에러가 발생한다. 그래서 CIDER 환경에서 에러가
+발생하지 않게 하려면 다음의 절차를 거쳐야 한다.
+
+[listing]
+----
+M-x setenv <return> LD_PRELOAD <return> /usr/lib/liblapack_atlas.so <return>
+M-x cider-jack-in
+----
+
+매번 위와 같이 입력하는 것이 번거로우면 다음과 같은 방법을 이용할 수도 있다.
+
+[listing]
+.~/.emacs.d/init.el
+----
+(defun my-clojure-mode-init ()
+  “Initializes clojure mode.”
+  (interactive)
+
+  ; ......
+  (setenv “LD_PRELOAD” “/usr/lib/liblapack_atlas.so”))
+
+(add-hook ‘clojure-mode-hook ‘my-clojure-mode-init)
+----
+
+
+=== ~/.profile
+
+아주 단순무식한 방법이기는 하지만 다음과 같이 해도 문제가 해결되기는 한다.
+
+[listing]
+~/.profile
+----
+export LD_PRELOAD=/usr/lib/liblapack_atlas.so
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
