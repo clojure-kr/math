@@ -224,7 +224,7 @@ M-x cider-jack-in
 아주 단순무식한 방법이기는 하지만 다음과 같이 해도 문제가 해결되기는 한다.
 
 [listing]
-~/.profile
+.~/.profile
 ----
 export LD_PRELOAD=/usr/lib/liblapack_atlas.so
 ----
