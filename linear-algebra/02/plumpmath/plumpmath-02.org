@@ -1,11 +1,5 @@
 * *LINEAR EQUATIONS IN LINEAR ALGEBRA*
 
-Sections x.x :  선형독립(linear independence)
-
-Sections x.x :  선형변환(linear transforms)
-
-Sections x.x :  스패닝(spanning)
-
 ** 1.1 SYSTEMS OF LINEAR EQUATIONS
 *섹션 1.1 ~ 1.2 목표 :*
 system of linear equations의 systematic(체계적인) method for solving algorithm을 배움.
