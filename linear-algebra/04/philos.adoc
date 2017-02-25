@@ -1,2 +1,100 @@
-= 내용 정리
+= Chapter 2. Matrix Algebra
+:sectnums:
+:stem: latexmath  
 
+
+.용어 설명
+[sidebar]
+****
+sparse matrix(희소 행렬)::
+행렬의 값이 대부분 0인 행렬이다.
+
+partitioned matrix or block matrix(분할 행렬)::
+하나의 행렬은 더 작은 부분 행렬(submatrix)로 분할될 수 있다.
+
+matrix factorization(행렬의 분해)::
+LU factorization
+
+diagonal matrix(대각 행렬)::
+정사 행렬 중에, 주 대각 성분(main diagonal entry)들을 제외한 모든 성분이 0인 행렬.
+
+transposed matrix(전치 행렬)::
+행렬의 행과 열이 뒤바뀐 행렬
+
+singular matrix(특이 행렬)::
+역행렬이 존재하지 않는 행렬
+
+nonsingular matrix(정칙 행렬)::
+역행렬이 존재하는 행렬
+
+elementary matrix(기본 행렬)::
+기본 행렬은 단위행렬에 기본행 연산(elementary row operation)을 한 번 실행하여 얻어지는
+행렬이다.
+****
+
+
+== Matrix Operations
+
+[sidebar]
+****
+* 행렬간 덧셈: matrix + matrix
+* 행렬의 실수배: matrix * 실수배
+* 행렬간 곱셈: matrix * matrix
+* 행렬간 곱셈의 성질
+* 전치 행렬
+* 전치행렬의 성질
+****
+
+
+== The Inverse of Matrix
+
+[sidebar]
+****
+* 역행렬의 정의
+* 역행렬 구하는 공식
+* 역행렬의 성질
+* 기본 행렬(elementary matrix)
+* 기본행 연산(elementary row operation)
+****
+
+=== 역행렬
+
+역행렬은 정사 행렬(square matrix)인 경우에만 가능하다.
+
+inverse matrix(역행렬)::
+[stem]
+++++
+A^{-1} = \frac{1}{ad-bc} \begin{bmatrix} \hfil d & -b \\ -c & \hfil a \end{bmatrix}
+++++
+
+
+determinant(행렬식)::
+stem:[\det A = ad-bc]
+
+
+=== 기본 행렬
+
+elementary matrix(기본 행렬)::
+기본 행렬은 단위 행렬에 기본행 연산(elementary row operation)을 한 번 실행하여 얻어지는
+행렬이다.
+
+기본행 연산::
+기본행렬을 만드는 연산을 기본행 연산이라고 한다. 어떤 행렬에 기본행렬을 여러 번 곱하여
+단위 행렬로 만들 수 있다면 그 행렬은 가역행렬 또는 역행렬이 존재함을 증명할 수 있고,
+기본행 연산으로 가역행렬 또는 역행렬을 구할 수 있다.
+
+=== 기본행 연산(elementary row operations)
+
+기본행 연산법에는 3개의 방법이 있다.
+
+. 두 행을 교환(Row switching transformations)
++
+두 개의 행의 줄 전체를 아래 위로 교환한다.
+
+. 한 행에 0이 아닌 상수를 곱함(Row-multiplying transformations)
++
+행줄 전체에 0이 아닌 상수를 곱하여 행 전체에 n배를 한다.
+
+. 한 행에 배수를 곱한 후, 이를 다른 행에 더함(Row-addition transformations)
++
+한 행 전체에 n배를 하고 이 결과를 다시 다른 행에 더한다.
