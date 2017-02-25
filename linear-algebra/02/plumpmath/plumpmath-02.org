@@ -1,0 +1,426 @@
+* *LINEAR EQUATIONS IN LINEAR ALGEBRA*
+
+** 1.1 SYSTEMS OF LINEAR EQUATIONS
+*섹션 1.1 ~ 1.2 목표 :*
+system of linear equations의 systematic(체계적인) method for solving algorithm을 배움.
+
+*** (1) LINEAR EQUATION'S FORM 방정식 모양
+**** FORM
+ #+BEGIN_SRC latex  :exports results   :results output raw graphics :file ./images/1.1a-LINEAR-EQUATIONs-FORM.png
+\[ a_{1}x_{1} + a_{2}x_{2} + \cdots + a_{n}x_{n} = b    \:\:\:\:\:\:\:\:     \left( 1 \right) \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1a-LINEAR-EQUATIONs-FORM.png]]
+
+**** FORM의 재료들
+<<정의>>
+coefficients 계수집합, 상수원소b  [ a1,...,an  , b ] <--요 집합의 원소들의 수타입은 real-number 또는 complex-number 이다.
+
+1. --- 미지수 오른쪽 밑에 표시된  n첨자(subscript)는 양의 정수
+2. ---[ x1,...,xn ]  미지수덜...
+
+*** Equations "선형" 여부 확인 ----  (TRUE)
+**** 예제
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1b.png
+\[ 4x - 5y + 2 = x   \:\:\:\: and \:\:\:\:   y = 2 \left( \sqrt{6}-x \right) + z  \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1b.png]]
+
+**** 예제 식을  위(1) FORM으로 정리 
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1c.png
+\[ 3x - 5y = -2   \:\:\:\: and \:\:\:\:    2x + y - z = 2 \sqrt{6}  \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1c.png]]
+선형 FORM을 만족하는 방정식
+
+**** Python : 선형여부 확인 
+
+#+BEGIN_SRC python :exports both :session :results output
+from sympy import Eq
+from sympy.abc import x,y,z
+from sympy.parsing.sympy_parser import *
+from PlumpMath import is_linear
+
+st = standard_transformations + (implicit_multiplication,)
+
+A  =  Eq(  parse_expr("4x-5y+2",transformations=st)  ,  x )
+B  =  Eq(  y,  2* (sympy.sqrt(6)-x) +z  )
+
+print()
+print("eq1:linearity ",is_linear(A, [x,y,z]))
+print("eq2:linearity ",is_linear(B, [x,y,z]))
+#+END_SRC
+
+#+RESULTS:
+: 
+: >>> >>> >>> >>> >>> >>> >>> >>> >>>
+: eq1:linearity  True
+: eq2:linearity  True
+
+
+
+**** Hy : 선형여부 확인
+#+BEGIN_SRC hy :exports both :session :results output
+(import sympy)
+(import [sympy [Eq]]
+        [sympy.abc [x y z]]
+        [sympy.core.sympify [kernS]]
+        [sympy.parsing.sympy_parser [*]]
+;;        [infix [*]]
+        [PlumpMath [is_linear]])
+;;(require infix)
+
+(setv st (+ standard_transformations (, implicit_multiplication)))
+(setv A (Eq (parse_expr :s "4x-5y+2" :transformations st) x))
+(setv B (Eq y (kernS "2*(sqrt(6)-x)+z")))
+
+(print "A:linearity " (is_linear A [x y z]))
+(print "B:linearity " (is_linear B [x y z]))
+#+END_SRC
+
+#+RESULTS:
+: A:linearity  True
+: B:linearity  True
+
+*** Equations "선형" 여부 확인 ---- (FALSE)
+**** 예제
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1d.png
+\[ 4x - 5y  = xy   \:\:\:\: and \:\:\:\:    y = 2 \sqrt{x} - 6   \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1d.png]]
+
+**** 선형이 아닌 이유
+첫 번째 방정식:  
+x1x2(=xy) 항이 존재 (2개의 미지수가 곱해지는 상황이 존재하면 선형이 아니다.)
+
+두 번째 방정식: 
+루트x 항이 존재 (미지수항에 (지수법칙?)루트로 씌우면 선형이 안되는구낭...)
+
+**** Hy : 선형여부 확인
+#+BEGIN_SRC hy :exports both :session :results output
+(import sympy)
+(import [sympy [Eq]]) 
+(import [sympy.abc [x y z]])
+(import [sympy.core.sympify [kernS]])
+(import [sympy.parsing.sympy_parser [*]])
+(import [PlumpMath [is_linear]])
+;;(setv eq1 (Eq (- (* 4  x) (* 5  y))  (*  x  y))) ;;s-exp표기법 표현이 (form)배기싫다.
+;;(setv eq1 (Eq (kernS "4*x-5*y") (kernS "x*y"))) ;;곱하기도 빼버리고 싶다.
+(setv st (+ standard_transformations (, implicit_multiplication)))
+(setv eq1 (Eq (parse_expr :s "4x-5y" :transformations st)  (kernS "x*y")))
+(setv eq2 (Eq (kernS "2*sqrt(x)-6") (kernS "y")))  ;;(setv eq2 (Eq (- (* 2 (sympy.sqrt x)) 6)  y))
+(print "eq1:linearity " (is_linear eq1 [x y]))
+(print "eq2:linearity " (is_linear eq2 [x y]))
+#+END_SRC
+
+#+RESULTS:
+: eq1:linearity  False
+: eq2:linearity  False
+
+*** Equations 의 "해" 구하기
+**** 예제
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1e.png
+\[  \:\;\; 2x - y + 1.5z = \;\:\; 8  \]
+\[  \;\;\;\;\;  x  \:\;\;\;\;\;  -  \;\:\;  4z  = -7   \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1e.png]]
+
+**** Hy : 해 구하기
+
+#+BEGIN_SRC hy :exports both :session :results output
+(import sympy)
+(import [sympy [Eq Matrix linsolve]]) 
+;;(import [sympy.solvers.solveset [linsolve]])
+(import [sympy.abc [x y z]])
+(setv aug (Matrix [[2 -1 1.5 8] [1 0 -4 -7]]))
+(print (linsolve aug x y z))
+#+END_SRC
+
+#+RESULTS:
+: {(4.0*z - 7, 9.5*z - 22, z)}
+
+**** Hy : Result 값 해석
+책에서, 위 예제의 해집합이 (5, 6.5, 3) 이라고 
+설명하지만...
+
+Hy 코드 에서 구해진 "해" 처럼, 미지수가 남겨지면
+*"무수히 많은 해이다"*
+
+*** 등가(equivalent) 란~ consistent
++ 모든 linear system이 동일한 solution set을 갖으면 등가(equivalent)라 한다.
++ solution set 뜻:  모든 Equations 들의 미지수 값이  동일한 (해)의 집합
++ 해를 구한다는 의미:  방정식 직선을 그리고, 교차점 (Intersection Point)를 찾는것!!! 
+
+(단 직선인 경우는... 미지수 두가지만  해집합이 (x,y)순서쌍일때 / 미지수 세가지가 있는 3D일땐, 평면들의 교차 직선들의 여부를 찾는다.)
+
+**** *Figure 1:*  Exactly one solution, consistent
+***** 예제 : 한점 (3,2)
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1f.png
+\[  \;\:\; x - 2y = -1  \]
+\[ -x  + 3y  = \;\:\; 3   \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1f.png]]
+
+***** Python : 해 구하기 --- (미지수2개일땐) 두직선 교차 점
+
+#+BEGIN_SRC python :exports both :results file
+import numpy
+import sympy
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from sympy import plot,symbols
+from sympy.plotting import plot3d
+from sympy.abc import x
+from numpy.linalg import solve
+from numpy import allclose,dot,array,linspace,meshgrid,arange
+from mpl_toolkits.mplot3d import Axes3D
+
+fig=plt.figure()
+coe = array([[1,-2],[-1,3]])
+a = array([-1,3])
+s = solve(coe,a)
+check = allclose(dot(coe,s),a)
+
+ax=plt.figure().add_subplot(111)
+ax.axhline(linewidth=1.2, color="k")
+ax.axvline(linewidth=1.2, color="k")
+ax.plot((s[0],),(s[1],), lw=2, c='k', marker='o')
+plt.annotate("(%d %d)"%(s[0],s[1]), 
+             xy = (s[0], s[1]+0.1), 
+             xytext = (s[0], s[1]+0.6),
+             arrowprops = dict(facecolor='black', shrink=1))
+
+def f1(x): return (x+1)/2
+def f2(x): return (x+3)/3
+
+m = np.linspace(-5,5,100)
+r1 = f1(m)
+r2 = f2(m)
+plt.plot(m,r1)
+plt.plot(m,r2)
+plt.grid(True)
+
+plt.savefig("./images/figure_1_consistent.png")
+return "./images/figure_1_consistent.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/figure_1_consistent.png]]
+
+***** Hy : 해 구하기 --- 시각화 포기
+
+#+BEGIN_SRC hy :exports both :results output
+(import sympy)
+(import [numpy [allclose dot array linspace meshgrid arange]]
+        [numpy.linalg [solve]]
+        [sympy [Eq]]
+        [sympy.abc [x y]]
+;;        [matplotlib [pyplot]]        
+;;        [matplotlib.pyplot [figure]]
+;;        [mpl_toolkits.mplot3d [Axes3D]])
+        [sympy.plotting [plot]]
+        [sympy.core.sympify [kernS]]
+        [sympy.parsing.sympy_parser [*]]
+        [PlumpMath [is_linear]])
+
+
+(setv coefficients (array [[1 -2] [-1 3]]))
+(setv constants-term (array [-1 3]))
+(setv solution-set (solve coefficients constants-term))
+
+(print (allclose (dot coefficients solution-set) constants-term))
+
+;;(setv ax (apply (. (figure) add_subplot) [111] {:projection "3d"}))
+;; (apply (. fig add_subplot) [111] {:projection "3d"})
+;;(setv x (linspace -5 5 100))
+;;(setv y (linspace -5 5 100))
+;;(setv (, X Y) (meshgrid x y))
+(setv st (+ standard_transformations (, implicit_multiplication)))
+(setv eq1 (Eq x (parse_expr :s "2y-1" :transformations st)))
+(setv eq2 (Eq x (parse_expr :s "3y-3" :transformations st)))
+
+;;(setv arg (arange -5 5 0.1))
+
+;;(pyplot.plot arg eq1 :color "b")
+;;(pyplot.plot arg eq2 :color "r")
+;;(legend ["x-2y=-1","-x+3y=3"])
+
+;;(pyplot.xlabel "x")
+;;(pyplot.ylabel "y")
+;;(pyplot.savefig "figure_1_consistent.png")
+;;"figure_1_consistent.png" 
+#+END_SRC
+
+#+RESULTS:
+: True
+
+**** *Figure 2:*  Infinitely many solutions, consistent
+***** 예제 : 해가 무수히 많다. (모든점)
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1hb-Infinitely.png
+\[  \;\:\; x - 2y = -1  \]
+\[ -x  + 2y  = \;\:\; 1   \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1hb-Infinitely.png]]
+
+***** (선)교차
+
+[[file:images/1.1hb.jpg]]
+ 
+***** Hy : 해 구하기 --- 위에서 한번 언급(미지수가 남는다.)
+#+BEGIN_SRC hy :exports both :session :results output
+(import sympy)
+(import [sympy [Eq Matrix linsolve]]) 
+(import [sympy.abc [x y]])
+(setv aug (Matrix [[1 -2 -1] [-1 2 1]]))
+(print (linsolve aug x y))
+#+END_SRC
+
+#+RESULTS:
+: {(2*y - 1, y)}
+
+*** *Figure 2:* (a) no solutions, inconsistent
+**** 예제 : 해가 없다.
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1ha.png
+\[  \;\:\; x - 2y = -1  \]
+\[ -x  + 2y  = \;\:\; 3   \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1ha.png]]
+
+**** Hy : 해 구하기 : 해가 없넹.
+#+BEGIN_SRC hy :exports both :session :results output
+(import sympy)
+(import [sympy [Eq Matrix linsolve]]) 
+(import [sympy.abc [x y]])
+(setv aug (Matrix [[1 -2 -1] [-1 2 3]]))
+(print (linsolve aug x y))
+#+END_SRC
+
+#+RESULTS:
+: EmptySet()
+
+**** Python : 해 구하기 평행
+#+BEGIN_SRC python :exports both :results file
+import numpy
+import sympy
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from sympy import plot,symbols
+from sympy.plotting import plot3d
+from sympy.abc import x
+from numpy.linalg import solve
+from numpy import allclose,dot,array,linspace,meshgrid,arange
+from mpl_toolkits.mplot3d import Axes3D
+
+fig=plt.figure()
+coe = array([[1,-2],[-1,2]])
+a = array([-1,3])
+# s = solve(coe,a) # can't solve
+# check = allclose(dot(coe,s),a)
+
+ax=plt.figure().add_subplot(111)
+ax.axhline(linewidth=1.2, color="k")
+ax.axvline(linewidth=1.2, color="k")
+# ax.plot((s[0],),(s[1],), lw=2, c='k', marker='o')
+# plt.annotate("(%d %d)"%(s[0],s[1]), 
+#              xy = (s[0], s[1]+0.1), 
+#              xytext = (s[0], s[1]+0.6),
+#              arrowprops = dict(facecolor='black', shrink=1))
+
+def f1(x): return (x+1)/2
+def f2(x): return (x+3)/2
+
+m = np.linspace(-5,5,100)
+r1 = f1(m)
+r2 = f2(m)
+plt.plot(m,r1)
+plt.plot(m,r2)
+plt.grid(True)
+
+plt.savefig("./images/figure_2_no_solution.png")
+return "./images/figure_2_no_solution.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/figure_2_no_solution.png]]
+ 
+
+ ------------------------------------------------------------------------
+
+*** Matrix Notation
+**** 연립방정식 ( system )
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1ha.png
+\[  x - 2y + z = 0  \]
+\[       2y - 8z  = 8   \]    
+\[  -4x + 5y + 9z = -9  \]
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1ha.png]]
+
+**** 계수행렬 (coefficients matrix) : 없는 (계수*미지수)항은 0으로 처리
+ #+BEGIN_SRC latex :exports results   :results output raw graphics :file ./images/1.1ha-coefficients.png
+\begin{bmatrix}
+ 1&-2 &1\\ 
+ 0&2&-8\\ 
+-4& 5 &9 
+\end{bmatrix}
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1ha-coefficients.png]]
+
+**** ( augmented matrix )  :  3행4열을 영어로 "3 by 4" 라고 읽는다.
+
+ #+BEGIN_SRC latex :exports results :results output raw graphics :file ./images/1.1ha-augmented.png
+\begin{bmatrix}
+ 1&-2 &1&0\\
+ 0&2&-8& 8\\
+-4& 5 &9&-9
+\end{bmatrix}
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:./images/1.1ha-augmented.png]]
+
+*** Solving a Linear System
+선형 시스템을 푸는 알고리즘
+"*동일한 해집합을 가진 시스템 간에 연산으로 시스템matrix 부분을 대체"* 
+하는 식이다.
+
+EXAMPLE 1 Solve system (3). 에서 
+----- *소거법 / 행연산* ----- 
+을 설명한다.
+
+----------------------------------------------------------------------------------------------
+
++ 3개의 기본 연산을 사용하여 선형 시스템을 단순화합니다:
+  + 하나의 방정식을 그 자체의 합계와 다른 방정식의 배수로 대체하고 
+  + 두 방정식을 교환하고 
+  + 방정식의 모든 항을 0이 아닌 상수로 곱합니다.
+
+
+
+----------------------------------------------------------------------------------------------
+
+**** EXAMPLE 1 Solve system (3).
+EXAMPLE1 에서는 3개 기본연산으로 시스템의 Solution-set이 변경되지 않는 이유를 알 수 있습니다.
+
+(방정"식"이 행연산이 가능하도록, 선형 equation form으로 정리한다.)
+
