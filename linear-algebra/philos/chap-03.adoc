@@ -1,0 +1,11 @@
+= Determinants
+:sectnums:
+:stem: latexmath  
+
+* cofactor expansion(여인수 전개)
+
+* Elementary Matrix(기본 행렬): 항등(or 단위) 행렬 stem:[I_n]에 기본 행 연산을 단 한 번만
+  실행해 나온 행렬
+
+* Adjoint(= Adjugate) Matrix(수반 행렬)
+

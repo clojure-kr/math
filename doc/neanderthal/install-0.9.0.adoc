@@ -1,0 +1,9 @@
+= Neanderthal
+:sectnums:
+:stem: latexmath  
+
+* 참고: link:http://neanderthal.uncomplicate.org/articles/getting_started.html#the-native-library-used-by-neanderthals-native-engine[]
+
+== Installing Intel MKL(Math Kernel Library) Library
+
+. link:https://software.intel.com/en-us/intel-mkl[]에서 Free Version 라이브러리를 다운로드한다.
