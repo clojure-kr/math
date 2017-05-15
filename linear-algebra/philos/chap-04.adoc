@@ -6,8 +6,15 @@
 
 * complex vector space (복소 벡터 공간): scalar가 복소수일 때
 
-* homogeneous linear system: stem:[A\mathbf{x} = \mathbf{b}]가 아닌, stem:[A\mathbf{x} =
+* homogeneous linear system: stem:[A\mathbf{x} = \mathbf{y}]가 아닌, stem:[A\mathbf{x} =
   \mathbf{0}] 형태의 연립 방정식
+
+* kernel(핵, = null space)
+
+* Null Space: stem:[A\mathbf{x} = \mathbf{0}]에서 벡터 stem:[\mathbf{x}]가 이루는 공간을 의미
+
+* Column Space: stem:[A\mathbf{x} = \mathbf{y}]에서 stem:[\mathbf{y}]가 이루는 공간을 의미
+
 
 
 == 표기
@@ -35,6 +42,6 @@
 * stem:[A \mathbf{x} = \mathbf{0}]를 만족시키는 stem:[\mathbf{x}]를 행렬 stem:[A]의 Null
   Space라고 한다.
 
-* 행렬 stem:[A]를 이루는 모든 column vercorr들이 선형 독립이면, stem:[ \mathrm{Nul}\, (A) =
+* 행렬 stem:[A]를 이루는 모든 column vercor들이 선형 독립이면, stem:[ \mathrm{Nul}\, (A) =
   \{\mathbf{0}\} ]이다.
                                                                                             
