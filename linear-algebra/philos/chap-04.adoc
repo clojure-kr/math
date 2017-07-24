@@ -9,13 +9,6 @@
 * homogeneous linear system: stem:[A\mathbf{x} = \mathbf{y}]가 아닌, stem:[A\mathbf{x} =
   \mathbf{0}] 형태의 연립 방정식
 
-* kernel(핵, = null space)
-
-* Null Space: stem:[A\mathbf{x} = \mathbf{0}]에서 벡터 stem:[\mathbf{x}]가 이루는 공간을 의미
-
-* Column Space: stem:[A\mathbf{x} = \mathbf{y}]에서 stem:[\mathbf{y}]가 이루는 공간을 의미
-
-
 
 == 표기
 
@@ -23,25 +16,56 @@
 
 * stem:[\mathbb{S}]: signal vector
 
-* stem:[\mathrm{Nul}\,\, A] (null space of the matrix stem:[A]): stem:[A\mathbf{x} =
-  \mathbf{0}]을 만드는 벡터 stem:[\mathbf{x}]
 
 
 == Column Space
 
 === Column Space of matrix stem:[A]
 
+* stem:[\mathrm{Col}\, A = \mathrm{Column \, Space} = \mathrm{Span}\, \{ \mathbf{v_1}, \mathbf{v_2}, \cdots \mathbf{v_3} \} ]
+
+* Column Space: stem:[A\mathbf{x} = \mathbf{y}]에서 stem:[\mathbf{y}]가 이루는 공간을 의미
+
 * 행렬 stem:[A]는 column vercor들로 구성된다. 이 column vector들이 형성하는, 모든 벡터들의
   집합(= span of column vectors)을 column space라고 한다.
 
-* stem:[\mathrm{Col}\, (A) = \{ \mathbf{v_1}, \mathbf{v_2}, \cdots \mathbf{v_3} \} =
-        \mathrm{Span}\, (\mathbf{v_1}, \mathbf{v_2}, \cdots \mathbf{v_3}) ]
 
 === Null Space of matrix stem:[A]
 
-* stem:[A \mathbf{x} = \mathbf{0}]를 만족시키는 stem:[\mathbf{x}]를 행렬 stem:[A]의 Null
-  Space라고 한다.
+* stem:[\mathrm{Nul}\, A = \mathrm{Null \, Space}]                                                
+
+* Null Space: stem:[A\mathbf{x} = \mathbf{0}]에서 벡터 stem:[\mathbf{x}]가 이루는 공간을 의미
+
+* kernel(핵, = null space)
 
 * 행렬 stem:[A]를 이루는 모든 column vercor들이 선형 독립이면, stem:[ \mathrm{Nul}\, (A) =
   \{\mathbf{0}\} ]이다.
-                                                                                            
+         
+
+
+                               
+== Basis vector
+
+stem:[A \mathbf{x} = \mathbf{y}]에서, stem:[\begin{bmatrix} \mathbf{y} \end{bmatrix}_\mathcal{B}
+                                            = \mathbf{x}]의 의미는 
+벡터 stem:[\mathbf{y}]를 basis vector 좌표계로 옮기면, 벡터 stem:[\mathbf{x}]
+가 된다는 것이다.
+      
+
+== Dimention
+
+* vector의 dimention은 basis vector들의 개수만을 센 것이다.
+
+* The dimension of the null space is sometimes called the nullity of stem:[A]
+
+
+== Rank
+
+* rank stem:[A] is the number of pivot columns in stem:[A]. Equivalently, rank stem:[A] is
+  the number of pivot positions in an echelon form stem:[B] of stem:[A].
+
+* the dimension of stem:[Nul \, A] equals the number of free variables in the equation
+  stem:[A \mathbf{x} = \mathbf{0}]. Expressed another way, the dimension of stem:[Nul \, A]
+  is the number of columns of stem:[A] that are not pivot columns.
+
+

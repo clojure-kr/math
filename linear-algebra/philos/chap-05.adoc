@@ -1,0 +1,46 @@
+= Chapter 5
+:sectnums:
+:stem: latexmath  
+
+== 대각화 (Diagonalization)
+
+* stem:[n \times n] 정사 행렬 stem:[A]가 있다.
+
+* 그런데 stem:[A^{10}]의 값을 구할 필요가 생겼다. 그런데 이 값을 곧이곧대로 구하는 것은
+  굉징히 번겨롭고 어려운 작업이다.
+
+* 그런데 행렬 stem:[A]가 대각화 가능한(diagonalizable) 행렬인 경우에는 그 계산이 굉장히
+  단순해진다.
+
+* 대각화 가능한 행렬인 경우에는 다음과 같은 형태로 변환할 수 있다.
++
+[stem]
+++++
+\begin{eqnarray}
+A      &=& PDP^{-1} \\
+A^{2}  &=& PDP^{-1} PDP^{-1} = PD^{2}P^{-1} \\
+       & & \ldots \ldots \\
+A^{10} &=& PD^{10}P^{-1}
+\end{eqnarray}
+++++
+
+** 그런데, 행렬 stem:[P]는 행렬 stem:[A]의 고유벡터들(eigenvectors)로 형성된다. 그리고
+  행렬 stem:[A]가 stem:[n]차 정사 행렬인 경우, 반드시 stem:[n]개의 고유벡터로 이루어져야
+  한다.  따라서 행렬 stem:[P]를 구하려면, 먼저 행렬 stem:[A]의 고유벡터들을 구할 필요가
+  있다.
+
+** 대각 행렬 stem:[D]는 행렬 stem:[A]의 고유값들(eigenvalues)로 형성되므로, 먼저 행렬
+   stem:[A]의 고유값들(eigenvalues)을 구할 필요가 있다.
+
+* 그런데, 행렬 stem:[A]의 고유벡터들을 얻으려면, 먼저 행렬 stem:[A]의
+  고유값들(eigenvalues)을 알아야 한다.
+
+* 그리고 행렬 stem:[A]의 고유값들(eigenvalues)을 얻으려면, 먼저 특성 방정식
+  stem:[\textrm{det} (A - \lambda I) = 0] 을 풀어야 한다.
+
+
+
+
+
+
+
