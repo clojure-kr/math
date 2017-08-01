@@ -68,7 +68,7 @@
 
      #+BEGIN_QUOTE
      정리9. 복소수 고유값을 가지는 2차원 정방실수행렬의 성질\\
-     A가 복소수 고유값 \lambda = a - bi(b \neq 0) 와 이에 대한 복소수 고유벡터 v를 가진 2x2 실수행렬이라면 A=PCP^{-1} 이다. \\
+     A가 복소수 고유값 \lambda = a - bi(b \neq 0) 와 이에 대한 복소수 고유벡터 v를 가진 2x2 실수행렬이라면 A=PCP^{-1} 이다.\\
      이 때 P = [Re v Im v] 이고 $$ C = \begin{bmatrix} a & -b \\ b & a \end{bmatrix} $$ 이다.
      #+END_QUOTE
      이것은 2차원을 넘어서는 공간에서도 성립한다. 
