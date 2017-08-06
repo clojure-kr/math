@@ -50,7 +50,7 @@
      $$ C = \begin{bmatrix} a & -b \\ b & a \end{bmatrix} $$ 의 고유값은 \lambda = a \pm bi 이다.
      $$ r = |\lambda| = \sqrt{a^{2} + b^{2}} $$ 이면,
      
-     $$ C = r\begin{bmatrix} a/r & -b/r // b/r & a/r \end{bmatrix} = \begin{bmatrix} r & 0 \\ 0 & r \end{bmatrix}\begin{bmatrix} cos\phi & -sin\phi \\ sin\phi & cos\phi \end{bmatrix} $$
+     $$ C = r\begin{bmatrix} a/r & -b/r \\ b/r & a/r \end{bmatrix} = \begin{bmatrix} r & 0 \\ 0 & r \end{bmatrix}\begin{bmatrix} cos\phi & -sin\phi \\ sin\phi & cos\phi \end{bmatrix} $$
      
      여기서 \phi 는 양의 x축에서 원점과 a,b를 지나는 직선까지의 각을 나타낸다.
      x축에 고유값의 실수성분 a가 적용되고 y축에 고유값의 허수성분 b가 적용된 것이다.
