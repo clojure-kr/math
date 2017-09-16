@@ -131,7 +131,7 @@ AB \neq BA
 
 * 모든 과녁이 맞게 하라. 중복되어 맞아도 상관 없다.
 * 조건: stem:[|X| \ge |Y|]
-* 예)
+* <사견> 예)
 +
 [stem]
 ++++
@@ -147,7 +147,7 @@ AB \neq BA
 
 * 하나의 과녁에는 한 발씩만 맞게 하라. 빈 과녁이 있어도 상관 없다. 
 * 조건: stem:[|X| \le |Y|]
-* 예)
+* <사견> 예)
 +
 [stem]
 ++++
@@ -162,3 +162,30 @@ AB \neq BA
 
 * 조건: stem:[|X| = |Y|]
 * 역행렬이 존재한다는 것은 그 사상이 전단사 함수임을 나타낸다.
+
+== Kernel & Image
+
+[stem]
+++++
+L: V \to W \\
+
+\begin{equation}
+\mathbf{Ker} (L) = \{ \mathbf{v} \in V \, | \, L(\mathbf{v}) \} =  \mathbf{0} \le V
+\end{equation}
+++++
+
+* Kernel(핵) of L = Nullspace(영 공간) of L
+* Kernel of L은 ``정의역``의 부분 공간이다.
+
+
+[stem]
+++++
+L: V \to W \\
+
+\begin{equation}
+\mathbf{Im} (L) = \{ \mathbf{w} \in W \, | \, ^{\exists} \mathbf{v} \in V \hbox{ such that } \mathbf{w} = L((\mathbf{v})
+\end{equation}
+++++
+
+* Image(상) of L = Range(치역) of L
+* Image of L은 ``공역``의 부분 공간이다.
