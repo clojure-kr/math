@@ -58,7 +58,7 @@
 
        y=\beta_{0} + \beta_{1}u + \beta_{2}v
 
-       y=\beta_{0} + \beta_{1}u + \beta_{2}v + \beta_{3}u^2 + \beta_{4}uv + \beta_{5}v^2 
+       y=\beta_{0} + \beta_{1}u + \beta_{2}v + \beta_{3}u^{2} + \beta_{4}uv + \beta_{5}v^{2} 
 
     이런 방정식은 지질학에서 사용되며 이 방정식의 최소제곱근사를 특별히 *경향표면(trend surface)* 라고 부른다.   
     어떻게 2차항이 있는데 선형 모델이라는 것인가 의문인데
