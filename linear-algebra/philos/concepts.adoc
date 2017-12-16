@@ -123,3 +123,17 @@ stem:[A{\bf b}_3 = \begin{bmatrix} 2 & 3 \\ 1 & -5\end{bmatrix}
 
 * 앞의 행렬 stem:[A]는 열벡터들을 모아 놓은 것이고, 뒤의 행렬 stem:[B]는 실수배들을 모아
   놓은 것이다.
+
+
+== Rank
+
+Rank는 어떤 시스템에서 선형 독립(Linearly independent)한 Row vector 혹은 Column vector의
+개수를 의미한다.
+
+== Row picture & Column picture
+
+Row 방법은 다른 말로 내적(Dot product)이며, Column 방법은 선형결합(Linear Combination)이다. 
+
+Row picture는 공간상에서 선(Line) 혹은 평면(Plane)으로 표현되며 Column picture는
+공간상에서 벡터(Vector)들의 조합으로 표현된다.  Strang교수는 두 가지 방법 중 Column 방법을
+선호한다고 한다.

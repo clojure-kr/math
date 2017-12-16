@@ -34,3 +34,9 @@ or simply "\( W \) perp": \( W \)에 수직하다).
 
 == ORTHOGONAL PROJECTIONS
 
+\[ \mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T \mathbf{v} \]
+\[ \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \cdot \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} = x_1^2 + y_1^2 \]
+
+\[ \begin{bmatrix} x_1 & y_1 \end{bmatrix}  \begin{bmatrix} x_1 \\ y_1 \end{bmatrix}
+   = \begin{bmatrix} x_1^2 + y_1^2 \end{bmatrix}
+\]
