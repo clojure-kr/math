@@ -1,0 +1,191 @@
+= Sum up
+:sectnums:
+:stem: latexmath  
+
+== 표기법
+
+stem:[x \mapsto f(x)]:: 집합의 `원소` 간의 대응을 표시한다.
+stem:[f: X \to Y]:: `집합` 간의 대응을 표시한다.
+
+stem:[P_n(\mathbb{R})]:: 최고차 항이 stem:[n]인, 실수 계수를 갖는 다항식을 표시한다. 
+
+stem:[ [\mathbf{x}\]_{\mathbb{B}} ]:: 기존의 좌표 stem:[\mathbf{x}]를, 새로운
+좌표계(기저)인 stem:[\mathbb{B}]로 옮겨 놓았을 때의 새로운 좌표 stem:[[\mathbf{x}\]]를
+표시한다.
+       
+stem:[[A\]^i]:: 행렬 stem:[A]의 stem:[i]번째 열벡터를 표시한다.
+stem:[[A\]_j]:: 행렬 stem:[A]의 stem:[j]번째 행벡터를 표시한다.
+
+stem:[I_n]:: stem:[n]차 항등 행렬 (항등 행렬 = 단위 행렬) 
+
+
+== 개념
+
+=== field(체)
+
+* 사칙연산에 대해 닫혀 있는 대수 구조이다.
+* 선형 사상(Linear Mapping)은 이 체를 대상으로 한다.
+* 예) stem:[유리수 \mathbb{Q}, 실수 \mathbb{R}, 복소수 \mathbb{C}]
+
+=== basis(기저)
+
+* 기저는 새로운 좌표계의 좌표를 표시하는 기본 ``단위``가 된다.
+* 표준 기저: stem:[\{e_1, e_2, \ldots, e_n\}]
+
+=== 기타
+
+* space: vector space의 space는 집합이라는 의미와 같다. 즉 vector space는 모든 vector들의
+  집합을 의미한다.
+
+
+== 벡터의 연산
+
+=== 벡터의 덧셈
+
+. 결합 법칙
++
+[stem]
+++++
+(\mathbf{x} + \mathbf{y}) + \mathbf{z} = \mathbf{x} + (\mathbf{y} + \mathbf{z}) 
+++++
+
+. 교환 법칙
++
+[stem]
+++++
+\mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x}
+++++
+
+. 항등원 
++
+[stem]
+++++
+\mathbf{x} + \mathbf{0} = \mathbf{x}
+++++
+
+. 역원
++
+[stem]
+++++
+\mathbf{x} + (\mathbf{-x}) = \mathbf{0}
+++++
+
+
+=== 상수배 
+
+. 결합법칙
++
+[stem]
+++++
+(ab)\mathbf{x} = a(b\mathbf{x})
+++++
+
+. 분배법칙
++
+[stem]
+++++
+(a + b)\mathbf{x} = a\mathbf{x} + b\mathbf{x}
+++++
+
+. 분배법칙
++
+[stem]
+++++
+a(\mathbf{x} + \mathbf{y}) = a\mathbf{x} + a\mathbf{y}
+++++
+
+. 항등원 
++
+[stem]
+++++
+1\mathbf{x} = \mathbf{x}
+++++
+
+
+== 행렬의 연산
+
+[sidebar]
+****
+* 행렬의 곱셈은 함수(= 연산자)의 합성에 해당한다.
+****
+
+
+. 곱셈의 결합법칙
++
+[stem]
+++++
+A(BC) = (AB)C
+++++
+
+. 곱셈의 교환법칙은 성립하지 않는다.
++
+[stem]
+++++
+AB \neq BA
+++++
+
+
+== 함수 
+
+=== 전사 함수(surgective, onto)
+
+* 모든 과녁이 맞게 하라. 중복되어 맞아도 상관 없다.
+* 조건: stem:[|X| \ge |Y|]
+* <사견> 예)
++
+[stem]
+++++
+\begin{bmatrix} 5 &  8 &  4 &  8 \\
+                8 &  3 & -1 & -2 \\
+                4 & -1 &  2 &  4
+\end{bmatrix}
+++++
+
+
+
+=== 단사 함수(injective, one to one)
+
+* 하나의 과녁에는 한 발씩만 맞게 하라. 빈 과녁이 있어도 상관 없다. 
+* 조건: stem:[|X| \le |Y|]
+* <사견> 예)
++
+[stem]
+++++
+\begin{bmatrix} 5 &  8  \\
+                8 &  3  \\
+                4 & -1 
+\end{bmatrix}
+++++
+
+
+=== 전단사 함수(bijective, one to one corresponding)
+
+* 조건: stem:[|X| = |Y|]
+* 역행렬이 존재한다는 것은 그 사상이 전단사 함수임을 나타낸다.
+
+== Kernel & Image
+
+[stem]
+++++
+L: V \to W \\
+
+\begin{equation}
+\mathbf{Ker} (L) = \{ \mathbf{v} \in V \, | \, L(\mathbf{v}) \} =  \mathbf{0} \le V
+\end{equation}
+++++
+
+* Kernel(핵) of L = Nullspace(영 공간) of L
+* Kernel of L은 ``정의역``의 부분 공간이다.
+
+
+[stem]
+++++
+L: V \to W \\
+
+\begin{equation}
+\mathbf{Im} (L) = \{ \mathbf{w} \in W \, | \, ^{\exists} \mathbf{v} \in V \hbox{ such that } \mathbf{w} = L((\mathbf{v})
+\end{equation}
+++++
+
+* Image(상) of L = Range(치역) of L
+* Image of L은 ``공역``의 부분 공간이다.

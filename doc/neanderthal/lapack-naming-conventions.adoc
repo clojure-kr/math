@@ -1,0 +1,89 @@
+= Neanderthal
+:sectnums:
+:stem: latexmath  
+
+
+== LAPACK 명명 규칙 (the LAPACK naming scheme)
+
+[listing]
+----
+XYYZZZ
+----
+
+[cols="2"]
+|===
+
+| X   | data type
+| YY  | matrix type or the most significant matrix type
+| ZZZ | the computation performed
+ 
+|===
+
+
+== data type
+
+[cols="2"]
+|===
+
+| S  | Single precision or real
+| D  | Double precision
+| C  | Complex number
+| Z  | complex*16 or double complex
+| X  | 어느 데이터 타입이든 상관없다
+
+|===
+
+예를 들어, `xGESV`는 `SGESV`와 `CGESV`, `DGESV` `ZGESV` 모두를 지칭한다.
+
+
+== matrix type
+
+
+[cols="2", width="50%"]
+|===
+
+| BD | BiDiagonal
+| DI | DIagonal
+| GB | General Band
+| GE | GEneral (i.e., unsymmetric, in some cases rectangular)
+| GG | General matrices, Generalized problem (i.e., a pair of general matrices)
+| GT | General Tridiagonal
+| HB | (complex) Hermitian Band
+| HE | (complex) HErmitian
+| HG | upper Hessenberg matrix, Generalized problem (i.e a Hessenberg and a triangular matrix)
+| HP | (complex) Hermitian, Packed storage
+| HS | upper HeSsenberg
+| OP | (real) Orthogonal, Packed storage
+| OR | (real) ORthogonal
+| PB | symmetric or Hermitian Positive definite Band
+| PO | symmetric or Hermitian POsitive definite
+| PP | symmetric or Hermitian Positive definite, Packed storage
+| PT | symmetric or Hermitian Positive definite Tridiagonal
+| SB | (real) symmetric band
+| SP | Symmetric, Packed storage
+| ST | (real) Symmetric Tridiagonal
+| SY | SYmmetric
+| TB | Triangular Band
+| TG | Triangular matrices, Generalized problem (i.e., a pair of triangular matrices)
+| TP | t-Triangular, Packed storage
+| TR | TRiangular (or in some cases quasi-triangular)
+| TZ | TrapeZoidal
+| UN | (complex) UNitary
+| UP | (complex) Unitary, Packed storage
+
+|===
+
+
+== the computation performed
+
+[cols=""]
+|===
+
+| SV | SolVer
+| X  | eXpert driver
+
+|===
+
+
+
+

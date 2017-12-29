@@ -1,0 +1,4 @@
+= 
+:sectnums:
+:stem: latexmath  
+

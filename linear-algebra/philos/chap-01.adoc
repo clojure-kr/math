@@ -3,7 +3,7 @@
 == 1.5 Solution Sets of Linear Systems
 
 * Homogeneous Linear Systems(동차 연립일차방정식): stem:[A\vec{x}=\vec{b}]에서
-  stem:[\vec{b}]가 stem:[\vec{0}]이 아닐 때
+  stem:[\vec{b}]가 stem:[\vec{0}]일 때
 + 
 Nonhomogeneous Linear Systems(비동차 연립일차방정식): stem:[A\vec{x}=\vec{b}]에서
 stem:[\vec{b}]가 stem:[\vec{0}]이 아닐 때
@@ -12,5 +12,4 @@ stem:[\vec{b}]가 stem:[\vec{0}]이 아닐 때
 
 * nontrivial(자명하지 않은) solution: 해가 무수히 존재할 때
 
-* 3차원 공간에서 자유 변수의 한 개이면 그 해는 직선, 두 개 이상이면 평면에 존재한다.
 

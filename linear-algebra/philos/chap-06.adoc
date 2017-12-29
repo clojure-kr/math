@@ -1,0 +1,42 @@
+= Orthogonality and Least Squares
+:sectnums:
+:stem: latexmath  
+
+== Inner Product, Length, and Orthogonality
+
+\[ \left\| \mathbf{v} \right\| = \sqrt{\mathbf{v} \cdot \mathbf{v}}
+                               = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}  \]
+
+\[ \left\| \mathbf{v} \right\|^2 = \mathbf{v} \cdot \mathbf{v} \]
+
+=== Orthogonal Complements (직교 여공간)
+
+The set of all vectors \( \mathbf{z} \) that are orthogonal to \( W \) is called orthogonal
+complement of \( W \) and is denoted by \( W^\perp \) (and read as "\( W \) perpendicular"
+or simply "\( W \) perp": \( W \)에 수직하다).
+
+
+== ORTHOGONAL SETS (직교 집합)
+
+각각의 벡터들이 서로에 대해 모두 직교할 때, 이 벡터들의 집합을 직교 집합이라고 한다.
+
+\[ \hat{\mathbf{y}} = \hbox{proj}_L\mathbf{y}
+   = \frac{\mathbf{y} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u} \]
+
+\( \hat{\mathbf{y}} \): 벡터 \( \mathbf{y} \)를 부분 공간 \( L \)에 직교 사영했을 때의
+벡터 값.
+
+
+=== orthonormal basis (정규 직교 기저)
+
+벡터들이 서로 직교하면서, 길이가 1일 때(즉, 단위 벡터), 그 벡터를 정규직교기저라고 부른다.
+
+
+== ORTHOGONAL PROJECTIONS
+
+\[ \mathbf{v} \cdot \mathbf{v} = \mathbf{v}^T \mathbf{v} \]
+\[ \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} \cdot \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} = x_1^2 + y_1^2 \]
+
+\[ \begin{bmatrix} x_1 & y_1 \end{bmatrix}  \begin{bmatrix} x_1 \\ y_1 \end{bmatrix}
+   = \begin{bmatrix} x_1^2 + y_1^2 \end{bmatrix}
+\]

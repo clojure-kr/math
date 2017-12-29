@@ -98,3 +98,129 @@ elementary matrix(기본 행렬)::
 . 한 행에 배수를 곱한 후, 이를 다른 행에 더함(Row-addition transformations)
 +
 한 행 전체에 n배를 하고 이 결과를 다시 다른 행에 더한다.
+
+
+== Characteristics of Invertible Matrix
+
+== Invertible Matrix Theorem
+
+Let stem:[A] be a square stem:[n \times n] matrix. Then the following statements are
+equivalent. That is, for a given stem:[A] , the statements are either all true or all
+false.
+
+* stem:[A] is an invertible matrix.
+* stem:[A] is row equivalent to the stem:[n \times n] identity matrix.
+* stem:[A] has stem:[n] pivot positions.
+* The equation stem:[A {\bf x}={\bf 0}] has only the trivial solution.
+* The columns of stem:[A] form a linearly independent set.
+* The linear transformation stem:[\bf{x} \mapsto A\bf{x}] is one-to-one.
+* The equation stem:[A {\bf x}=0] has at least one solution for each stem:[\bf{b}] in stem:[\mathbb{R}^n].
+* The columns of stem:[A] span  stem:[\mathbb{R}^n].
+* The linear transformation stem:[\bf{x} \mapsto A\bf{x}] onto stem:[\mathbb{R}^n].
+* There is an stem:[n \times n] matrix stem:[C] such that stem:[CA = I].
+* There is an stem:[n \times n] matrix stem:[D] such that stem:[AD = I].
+* stem:[A^T] is an invertible matrix
+
+[listing]
+----
+가우스 소거법을 통해 항등 행렬로 변환될 수 있는 행렬은 유일한 해를 갖는 연립방정식이다.
+
+= 가역 행렬은 항등 행렬로 변환될 수 있다. 
+----
+
+
+== Partitioned Matriices
+
+Row-Column Rule
+
+[stem]
+++++
+\begin{bmatrix} a & b \\ c & d \\ e & f \end{bmatrix}
+\begin{bmatrix} x \\ y \end{bmatrix}
+= \begin{bmatrix} ax + by \\ cx + dy \\ ex + fy \end{bmatrix}
+++++
+
+Column-Row expansion of stem:[AB]
+
+[stem]
+++++
+\begin{bmatrix} a \\ c \\ e \end{bmatrix}
+\begin{bmatrix} x \end{bmatrix}
++
+\begin{bmatrix} b \\ d \\ f \end{bmatrix}
+\begin{bmatrix} y \end{bmatrix}
+= \begin{bmatrix} ax + by \\ cx + dy \\ ex + fy \end{bmatrix}
+++++
+
+
+
+
+== Matrix Factorization
+
+* matrix multiplication: stem:[AB = C] (일종의 곱셈 공식)
+* matrix factorization:  stem:[C = AB] (일종의 인수 분해)
+
+
+=== LU factorization (= LU Decomposition)
+
+* L: unit Low triangular matrix
+* U: Upper triangular matrix
+
+
+
+== Leontiff Input-Output Model
+
+[stem]
+++++
+
+
+\begin{eqnarray}
+\mathbf{x}  &=& C\mathbf{x} + \mathbf{d} \\
+I\mathbf{x} &=&  C\mathbf{x} + \mathbf{d} \\
+(I-C)\mathbf{x} &=& \mathbf{d} \\
+\mathbf{x}  &=& (I-C)^{-1} \mathbf{d} \\
+            &=& (I + C + C^2 + \cdots + C^m) \mathbf{d}
+\end{eqnarray}
+++++
+
+== APPLICATIONS TO COMPUTER GRAPHICS
+
+* homogeneous coordiantes(동차 좌표)
+
+
+== Subspaces of stem:[\mathbb{R}^n]
+
+* subspace(부분 공간)
+
+
+== Dimention and Rank
+
+* dimention(차원)
+* rank(차수)
+* isomorphism(동형 사상)
+
+=== 기저 벡터
+
+* 기저 벡터 stem:[\mathcal{B}]
++
+[stem]
+++++
+\mathcal{B} = \{ \mathbf{b}_1, \dots, \mathbf{b}_p \}
+++++
++
+기저 벡터 stem:[\mathcal{B}]는 벡터 stem:[ \mathbf{b}_1, ..., \mathbf{b}_p]로 이루어져 있음을
+표현한다.
+
+* stem:[\mathbf{x} \mapsto \begin{bmatrix} \mathbf{x} \end{bmatrix} _\mathcal{B}]
++
+[stem]
+++++
+\begin{bmatrix} \mathbf{x} \end{bmatrix} _\mathcal{B}
+= \begin{bmatrix} c_1 \\ \vdots \\ c_p \end{bmatrix}
+= c_1 \mathbf{b}_1 + \dots + c_p \mathbf{b}_p
+++++
+
+
+
+벡터 stem:[\mathbf{x}]를, 기저 벡터 stem:[\mathcal{B}]를 기준으로 변환해 표현한 것.
+

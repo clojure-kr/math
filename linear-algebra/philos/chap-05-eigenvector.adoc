@@ -1,0 +1,156 @@
+= Chapter 5
+:sectnums:
+:stem: latexmath  
+
+== 차분 방정식 (Difference equation)
+
+다음과 같은 차분 방정식이 있다고 하자.
+
+\[ \mathbf{x}_{k+1} = A \mathbf{x}_k \qquad (k = 0, 1, 2, \dots) \]
+
+이것을 풀어 쓰면 다음과 같다.
+
+\[
+  \begin{array}{ccc}
+  \ \mathbf{x}_1 &=& A \mathbf{x}_0 && \\
+  \mathbf{x}_2 &=& A \mathbf{x}_1 &=& A^2 \mathbf{x}_0 \\
+  \mathbf{x}_3 &=& A \mathbf{x}_2 &=& A^3 \mathbf{x}_0 \\
+     \vdots    && \vdots          &&  \vdots  \\
+  \mathbf{x}_{k+1} &=& A \mathbf{x}_k &=& A^k \mathbf{x}_0
+  \end{array} 
+\]
+
+
+== 고유벡터와 고유값을 이용한 행렬의 분해
+
+\[ A = PDP^{-1} \]
+
+* 행렬 \(A\)를 위와 같이 행렬 \( PDP^{-1} \)로 분해할 수 있다면, 위의 차분 방정식의 계산은
+  다음과 같이 간단해진다.
+
+* 단, 여기서 \(P\)는 고유벡터들로 이루어진 행렬이고, \(D\)는 고유값들로 이루어진 대각
+  행렬이다.
+
+\[
+  \begin{array}{ccc}
+  \ \mathbf{x}_1 &=& PDP^{-1} \mathbf{x}_0 \\
+  \mathbf{x}_2 &=& PDP^{-1} \mathbf{x}_1 &=& PDP^{-1} PDP^{-1} \mathbf{x}_0 &=& PD^{2} P^{-1} \mathbf{x}_0 \\
+  \mathbf{x}_3 &=& PDP^{-1} \mathbf{x}_2 &=& PDP^{-1} PDP^{-1} PDP^{-1} \mathbf{x}_0 &=& PD^{3} P^{-1} \mathbf{x}_0 \\
+               \vdots && \vdots  && \vdots && \vdots  \\
+  \mathbf{x}_{k+1} &=& PDP^{-1} A \mathbf{x}_k &=& \overbrace{ PDP^{-1} \cdots PDP^{-1} }^{k+1 \text{ 개}} \mathbf{x}_0 &=& PD^{k+1} P^{-1} \mathbf{x}_0
+  \end{array} 
+\]
+
+
+== Eigenvalue & Eigenvector 
+
+=== 고유값과 고유벡터의 정의
+
+\[ A\mathbf{v} = \lambda\mathbf{v} \]
+
+* 위의 식을 만족시키는 \( \lambda \) 를 eigenvalue라 하고, \( \mathbf{v} \) 를
+  eigenvector라 한다.
+
+
+=== \(2\times2\) 정사 행렬의 예
+
+\(A = \begin{bmatrix} a & c \\ b & d \end{bmatrix},
+  \mathbf{v}_1 = \begin{bmatrix} x_1 \\ y_1 \end{bmatrix},
+  \mathbf{v}_2 = \begin{bmatrix} x_2 \\ y_2 \end{bmatrix}
+\) 라고 하자.
+
+\[ A\mathbf{v}_1 = \lambda_1\mathbf{v_1} \]
+\[ A\mathbf{v}_2 = \lambda_2\mathbf{v_2} \]
+
+여기에서 \(  \begin{bmatrix} \mathbf{v}_1 & \mathbf{v}_2 \end{bmatrix} 
+           = \begin{bmatrix} x_1 & x_2 \\ y_1 & y_2 \end{bmatrix}
+           = P \) 이고,
+\( \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{bmatrix} = D \) 로 정의되므로,
+
+\(AP = PD \)가 성립한다.
+
+\(APP^{-1} = PDP^{-1}\)이므로, \(A = PDP^{-1}\) 역시 성립한다.
+
+[sidebar]
+.scalar와 vector의 곱을 matrix 형태로 바꾸기
+****
+\[
+    \lambda_1 \mathbf{v}_1
+  = \lambda_1 \begin{bmatrix} x_1 \\ y_1 \end{bmatrix}
+  = \begin{bmatrix} \lambda_1 x_1 \\ \lambda_1 y_1 \end{bmatrix},
+  \qquad
+    \lambda_2 \mathbf{v}_2
+  = \lambda_2 \begin{bmatrix} x_2 \\ y_2 \end{bmatrix}
+  = \begin{bmatrix} \lambda_2 x_2 \\ \lambda_2 y_2 \end{bmatrix}
+\]
+
+\[
+  \begin{bmatrix} x_1 & x_2 \\ y_1 & y_2 \end{bmatrix}
+  \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{bmatrix}
+= \begin{bmatrix} \lambda_1 x_1 & \lambda_2 x_2 \\
+                  \lambda_1 y_1 & \lambda_2 y_2 \end{bmatrix}
+\qquad \hbox{(O)}
+\]
+
+\[ 
+  \begin{bmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{bmatrix}
+  \begin{bmatrix} x_1 & x_2 \\ y_1 & y_2 \end{bmatrix}
+= \begin{bmatrix} \lambda_1 x_1 & \lambda_1 x_2 \\
+                  \lambda_2 y_1 & \lambda_2 y_2 \end{bmatrix}
+\qquad \hbox{(X)}
+\]
+
+
+****
+
+
+
+
+ 
+
+
+
+
+
+== 대각화 (Diagonalization)
+
+* stem:[n \times n] 정사 행렬 stem:[A]가 있다.
+
+* 그런데 stem:[A^{10}]의 값을 구할 필요가 생겼다. 그런데 이 값을 곧이 곧대로 구하는 것은
+  굉징히 번겨롭고 어려운 작업이다.
+
+* 그런데 행렬 stem:[A]가 대각화 가능한(diagonalizable) 행렬인 경우에는 그 계산이 굉장히
+  단순해진다.
+
+* 대각화 가능한 행렬인 경우에는 다음과 같은 형태로 변환할 수 있다.
++
+[stem]
+++++
+\begin{eqnarray}
+A      &=& PDP^{-1} \\
+A^{2}  &=& PDP^{-1} PDP^{-1} = PD^{2}P^{-1} \\
+       & & \ldots \ldots \\
+A^{10} &=& PD^{10}P^{-1}
+\end{eqnarray}
+++++
+
+** 그런데, 행렬 stem:[P]는 행렬 stem:[A]의 고유벡터들(eigenvectors)로 형성된다. 그리고
+  행렬 stem:[A]가 stem:[n]차 정사 행렬인 경우, 반드시 stem:[n]개의 고유벡터로 이루어져야
+  한다.  따라서 행렬 stem:[P]를 구하려면, 먼저 행렬 stem:[A]의 고유벡터들을 구할 필요가
+  있다.
+
+** 대각 행렬 stem:[D]는 행렬 stem:[A]의 고유값들(eigenvalues)로 형성되므로, 먼저 행렬
+   stem:[A]의 고유값들(eigenvalues)을 구할 필요가 있다.
+
+* 그런데, 행렬 stem:[A]의 고유벡터들을 얻으려면, 먼저 행렬 stem:[A]의
+  고유값들(eigenvalues)을 알아야 한다.
+
+* 그리고 행렬 stem:[A]의 고유값들(eigenvalues)을 얻으려면, 먼저 특성 방정식
+  stem:[\textrm{det} (A - \lambda I) = 0] 을 풀어야 한다.
+
+
+
+
+
+
+
