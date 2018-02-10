@@ -1,2 +1,26 @@
 ** 8.5 초다면체(Polytopes)
+   *초다면체* 는 컴팩트 볼록집합의 특수한 타입으로 중요한 기하학적 특성을 가진다.
+   초다면체는 모든 종류의 응용에 나타난다.
 
+   R^{n}의 초다면체는 점들의 유한집합의 볼록외피이다.
+   R^{2}의 초다면체는 다각형(polygon) 이다. gon은 각형.
+   R^{3}의 초다면체는 다면체(polyhedron) 이다. hedron은 면체.
+   다면체의 특징은 면(faces), 선(edges), 점(vertices)을 갖는다는 것이다.
+   
+   #+BEGIN_QUOTE
+   참고. [[https://sciencing.com/difference-between-vertices-edges-8529136.html][Vertex, Edges, Faces]]
+
+   *Vertex* 는 두 개의 선이 만나는 지점이다. 간단히 기하 도형의 모서리라고 생각해도 된다.
+   *Edges* 는 버텍스를 만들기 위하여 연결된 선들이다. 하나의 선으로 연결된 두 개의 점이 하나의 에지를 만든다.
+   2차원 형태는 버텍스와 에지의 수가 같다. 3차원 형태부터는 버텍스와 에지의 수가 달라진다.
+   *Faces* 는 공간이 에지들로 된 닫힌 외곽선에 의하여 분리된 형태이다.
+   3차원 형태는 구를 제외하고는 다수의 페이스로 구성된다. 구는 연속된 하나의 페이스로 구성된다.
+   
+   *Vertices, Edges, Faces에 대한 오일러 공식* :  Faces + Vertices - Edges = 2 
+   #+END_QUOTE
+
+   R^{n}의 유한집합(finite set)은 컴팩트하다. 컴팩트집합의 볼록외피도 컴팩트하다.
+
+   #+BEGIN_QUOTE
+   정의. 
+   #+END_QUOTE
